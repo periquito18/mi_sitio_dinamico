@@ -17,11 +17,18 @@ $productos = [
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($productos as $nombre => $precio): ?>
+    <?php
+      // Obtenemos las claves (nombres de productos)
+      $claves = array_keys($productos);
+      // Recorremos las claves para acceder a los valores (precios)
+      for ($i = 0; $i < count($claves); $i++): 
+      $nombre = $claves[$i];
+      $precio = $productos[$nombre];
+      ?>
       <tr>
         <td><?= htmlspecialchars($nombre) ?></td>
         <td><?= number_format($precio, 2, ',', '.') ?></td>
       </tr>
-    <?php endforeach; ?>
+    <?php endfor; ?>
   </tbody>
 </table>
