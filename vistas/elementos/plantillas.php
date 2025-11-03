@@ -188,7 +188,7 @@ function mostrarListadoProductos(): string {
     $dao = new ProductoDAO($pdo);
     $productos = $dao->listar(); // ← devuelve Producto[]
 
-    $h = '<hr><h2 class="mt-4">Productos Locales de Camas</h2>';
+    $h = '<hr><h2 class="text-success text-center mt-4">Productos Locales de Camas</h2>';
 
     if (!$productos) {
         return $h . '<div class="alert alert-info mt-3">No hay productos registrados.</div>';
