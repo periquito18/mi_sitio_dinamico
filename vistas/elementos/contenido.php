@@ -1,10 +1,12 @@
 <?php
+require_once __DIR__ . '/plantillas.php';
+echo mostrarListadoProductos();
 // Estructura asociativa: producto => precio
-$productos = [
-  "Pan de Camas"        => 1.20,
-  "Aceitunas aliñadas"  => 2.50,
-  "Tortas de aceite"    => 3.00
-];
+// $productos = [
+//   "Pan de Camas"        => 1.20,
+//   "Aceitunas aliñadas"  => 2.50,
+//   "Tortas de aceite"    => 3.00
+// ];
 ?>
 
 <h2 class="text-success text-center mt-4">Productos locales de Camas</h2>

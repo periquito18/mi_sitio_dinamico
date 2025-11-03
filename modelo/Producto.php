@@ -13,8 +13,8 @@ require_once __DIR__ . '/Entidad.php';
  */
 class Producto extends Entidad
 {
-    public string $nombre = '';
-    public double $precio  = 0.0;
+    public string $nombre;
+    public float $precio;
 
     /**
      * Convierte el objeto en un array (útil para debug o JSON).
