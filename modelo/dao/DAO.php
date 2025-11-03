@@ -6,7 +6,7 @@ abstract class DAO implements DAOInterface {
     protected readonly PDO $pdo;
     protected readonly string $tabla;
 
-     public function __construct(PDO $pdo, string $tabla) {
+    public function __construct(PDO $pdo, string $tabla) {
         if (empty($tabla)) {
             throw new LogicException('Debe especificarse una tabla para el DAO.');
         }
