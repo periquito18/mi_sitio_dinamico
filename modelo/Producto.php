@@ -37,8 +37,8 @@ class Producto extends Entidad
         return [
             'id'      => $this->getId(),
             'nombre'  => $this->nombre,
-            'precio'     => $this->precio
-            'stock'     => $this->stock
+            'precio'     => $this->precio,
+            'stock'     => $this->stock,
             'descripcion'     => $this->descripcion
         ];
     }
