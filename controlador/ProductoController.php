@@ -103,6 +103,22 @@ final class ProductoController
         header('Location: index.php?p=contenido'); exit;
     }
 
+    public static function detalle(): Producto {
+        if (session_status() !== PHP_SESSION_ACTIVE) { session_start(); }
+        $auth = $_SESSION['auth'] ?? null;
+        if (($auth['rol'] ?? 'visitante') !== 'manager') { http_response_code(403); exit('Sin permisos'); }
+
+        $id = (int)($_GET['id'] ?? 0);
+        if ($id <= 0) { http_response_code(400); exit('ID inválido'); }
+
+        $pdo = Database::getConnection();
+        $dao = new ProductoDAO($pdo);
+        $producto = $dao->buscarPorId($id);
+        if (!$producto) { http_response_code(404); exit('Producto no encontrado'); }
+
+        return $producto;
+    }
+
     private static function error(string $msg, string $back): string {
         return '<div class="container py-4"><div class="alert alert-danger">' .
                htmlspecialchars($msg) .

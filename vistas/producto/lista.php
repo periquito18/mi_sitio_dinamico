@@ -20,8 +20,6 @@ $esManager = ($rol === 'manager');
     <tr>
       <th>Producto</th>
       <th>Precio (€)</th>
-      <th>Stock</th>
-      <th>Descripcion</th>
       <?php if ($esManager): ?><th>Acciones</th><?php endif; ?>
     </tr>
   </thead>
@@ -30,8 +28,6 @@ $esManager = ($rol === 'manager');
     <tr>
       <td><?= htmlspecialchars($p->nombre) ?></td>
       <td><?= number_format((float)$p->precio, 2, ',', '.') ?></td>
-      <td><?= number_format((int)$p->stock, 0, ',', '.') ?></td>
-      <td><?= htmlspecialchars($p->descripcion) ?></td>
       <?php if ($esManager): ?>
         <td>
           <a href="index.php?p=productos&action=editar&id=<?= htmlspecialchars((string)$p->getId()) ?>" class="btn btn-sm btn-warning">✏️ Editar</a>
@@ -41,6 +37,7 @@ $esManager = ($rol === 'manager');
             <input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf'] ?? '') ?>">
             <button class="btn btn-sm btn-danger" type="submit">🗑️ Eliminar</button>
           </form>
+          <a href="index.php?p=productos&action=detalle&id=<?= htmlspecialchars((string)$p->getId()) ?>" class="btn btn-sm btn-primary">ℹ️ Detalle</a>
         </td>
       <?php endif; ?>
     </tr>

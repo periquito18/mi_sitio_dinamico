@@ -50,7 +50,27 @@ ini_set('display_errors', '1');
           } elseif ($action === 'eliminar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             ProductoController::eliminar(); exit;
 
-          } else {
+          } elseif ($action === 'detalle') {
+            $producto = ProductoController::detalle();
+
+            echo '<div class="card shadow-sm">';
+            echo '<div class="card-header bg-primary text-white">';
+            echo '<h5 class="mb-0">' . htmlspecialchars($producto->getNombre()) . '</h5>';
+            echo '</div>';
+            echo '<div class="card-body">';
+            echo '<p><strong>Precio:</strong> $' . number_format($producto->getPrecio(), 2) . '</p>';
+
+            $stock = $producto->getStock();
+            $badgeClass = $stock <= 5 ? 'bg-danger' : 'bg-success';
+            echo '<p><strong>Stock:</strong> <span class="badge ' . $badgeClass . '">' . $stock . '</span></p>';
+
+            echo '<p><strong>Descripción:</strong><br>' . nl2br(htmlspecialchars($producto->getDescripcion())) . '</p>';
+
+            echo '<a href="index.php?p=productos&action=editar&id=' . $producto->getId() . '" class="btn btn-warning me-2">✏️ Editar</a>';
+            echo '<a href="index.php?p=productos" class="btn btn-secondary">🔙 Volver</a>';
+            echo '</div></div>';
+            
+          }else {
             [$auth, $productos] = ProductoController::datosListado();
             $cnt = __DIR__ . '/producto/lista.php';
           }
@@ -77,7 +97,27 @@ ini_set('display_errors', '1');
           } elseif ($action === 'eliminar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             ProductoController::eliminar(); exit;
 
-          } else {
+          } elseif ($action === 'detalle') {
+            $producto = ProductoController::detalle();
+
+            echo '<div class="card shadow-sm">';
+            echo '<div class="card-header bg-primary text-white">';
+            echo '<h5 class="mb-0">' . htmlspecialchars($producto->getNombre()) . '</h5>';
+            echo '</div>';
+            echo '<div class="card-body">';
+            echo '<p><strong>Precio:</strong> $' . number_format($producto->getPrecio(), 2) . '</p>';
+
+            $stock = $producto->getStock();
+            $badgeClass = $stock <= 5 ? 'bg-danger' : 'bg-success';
+            echo '<p><strong>Stock:</strong> <span class="badge ' . $badgeClass . '">' . $stock . '</span></p>';
+
+            echo '<p><strong>Descripción:</strong><br>' . nl2br(htmlspecialchars($producto->getDescripcion())) . '</p>';
+
+            echo '<a href="index.php?p=productos&action=editar&id=' . $producto->getId() . '" class="btn btn-warning me-2">✏️ Editar</a>';
+            echo '<a href="index.php?p=productos" class="btn btn-secondary">🔙 Volver</a>';
+            echo '</div></div>';
+            
+          }else {
             [$auth, $productos] = ProductoController::datosListado();
             $cnt = __DIR__ . '/producto/lista.php';
           }

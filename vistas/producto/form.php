@@ -46,7 +46,7 @@ $valId     = $esEdicion ? (int)$producto->getId() : 0;
 
     <div class="mb-3">
     <label class="form-label">Descripcion</label>
-    <input class="form-control" name="descripcion" required
+    <input class="form-control" name="descripcion" maxlength="1200" required
             value="<?= htmlspecialchars($valDescripcion) ?>">
   </div>
 
