@@ -21,7 +21,7 @@ function resetTabla(PDO $pdo, string $tabla): void
  * - Si $reset = true, vacía la tabla antes de insertar.
  * - Devuelve el número aproximado de filas afectadas.
  */
-function semillaProductosDatos(bool $reset = true): int
+function semillaProductosDatos(bool $reset = false): int
 {
     $pdo = Database::getConnection();
     $afectadas = 0;
