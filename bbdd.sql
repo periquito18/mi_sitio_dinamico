@@ -29,3 +29,7 @@ CREATE TABLE productos (
   nombre VARCHAR(50) NOT NULL,
   precio DOUBLE NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ALTER TABLE productos
+-- ADD COLUMN stock INT DEFAULT 0 NOT NULL,
+-- ADD COLUMN descripcion TEXT NOT NULL;

@@ -19,7 +19,9 @@ class Producto extends Entidad
   
     public function __construct(
     public string $nombre,
-    public float $precio
+    public float $precio,
+    public int $stock,
+    public string $descripcion
   ) {}
   
     public static function vacio(): self
@@ -36,6 +38,8 @@ class Producto extends Entidad
             'id'      => $this->getId(),
             'nombre'  => $this->nombre,
             'precio'     => $this->precio
+            'stock'     => $this->stock
+            'descripcion'     => $this->descripcion
         ];
     }
 }
