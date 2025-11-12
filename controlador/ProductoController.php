@@ -103,7 +103,7 @@ final class ProductoController
         header('Location: index.php?p=contenido'); exit;
     }
 
-    public static function detalle(): Producto {
+    public static function verDetalle(): array {
         if (session_status() !== PHP_SESSION_ACTIVE) { session_start(); }
         $auth = $_SESSION['auth'] ?? null;
         if (($auth['rol'] ?? 'visitante') !== 'manager') { http_response_code(403); exit('Sin permisos'); }

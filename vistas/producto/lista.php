@@ -37,7 +37,7 @@ $esManager = ($rol === 'manager');
             <input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf'] ?? '') ?>">
             <button class="btn btn-sm btn-danger" type="submit">🗑️ Eliminar</button>
           </form>
-          <a href="index.php?p=productos&action=detalle&id=<?= htmlspecialchars((string)$p->getId()) ?>" class="btn btn-sm btn-primary">ℹ️ Detalle</a>
+          <a href="index.php?p=productos&action=verDetalle&id=<?= htmlspecialchars((string)$p->getId()) ?>" class="btn btn-sm btn-info">ℹ️ Ver Detalles</a>
         </td>
       <?php endif; ?>
     </tr>
